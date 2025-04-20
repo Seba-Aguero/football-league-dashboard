@@ -14,15 +14,16 @@
     <tbody>
       <tr *ngFor="let team of leaderboard">
         <td class="team-column">
-          <img [src]="team.flag" [alt]="team.name + ' flag'" class="team-flag">
-          {{ team.name }}
+          <img [src]="team.teamFlag" [alt]="team.teamName + ' flag'" class="team-flag">
+          {{ team.teamName }}
         </td>
-        <td class="matches-played-column">{{ team.mp }}</td>
-        <td class="goals-for-column">{{ team.gf }}</td>
-        <td class="goals-against-column">{{ team.ga }}</td>
-        <td class="goal-difference-column">{{ team.gd }}</td>
+        <td class="matches-played-column">{{ team.matchesPlayed }}</td>
+        <td class="goals-for-column">{{ team.goalsFor }}</td>
+        <td class="goals-against-column">{{ team.goalsAgainst }}</td>
+        <td class="goal-difference-column">{{ team.goalDifference }}</td>
         <td class="points-column">{{ team.points }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+

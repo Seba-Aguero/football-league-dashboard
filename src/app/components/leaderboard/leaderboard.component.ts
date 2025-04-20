@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueService } from 'src/app/services/league.service';
+import { LeagueService } from '../../services/league.service';
+import { LeaderboardEntry } from '../../models/team.interface';
 
 @Component({
   selector: 'app-leaderboard',
@@ -7,19 +8,29 @@ import { LeagueService } from 'src/app/services/league.service';
   styleUrls: ['./leaderboard.component.scss'],
 })
 export class LeaderboardComponent implements OnInit {
-  leaderboard: any[] = [];
-  loading: boolean = true;
+  leaderboard: LeaderboardEntry[] = [];
+  isLoading: boolean = true;
+  error: string | null = null;
 
   constructor(private leagueService: LeagueService) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
+    this.loadLeaderboard();
+  }
+
+  async loadLeaderboard(): Promise<void> {
     try {
+      this.isLoading = true;
       await this.leagueService.fetchData();
       this.leaderboard = this.leagueService.getLeaderboard();
-    } catch (error) {
-      console.error('Error loading leaderboard:', error);
+      this.error = null;
+    } catch (err) {
+      this.error = 'Error loading the leaderboard';
+      console.error(err);
     } finally {
-      this.loading = false;
+      this.isLoading = false;
     }
   }
 }
+
+

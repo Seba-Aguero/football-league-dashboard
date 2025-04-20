@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeagueService } from 'src/app/services/league.service';
+import { MatchWithFlags } from 'src/app/models/match.interface';
 
 @Component({
   selector: 'app-schedule',
@@ -7,8 +8,8 @@ import { LeagueService } from 'src/app/services/league.service';
   styleUrls: ['./schedule.component.scss'],
 })
 export class ScheduleComponent implements OnInit {
-  matches: any[] = [];
-  loading: boolean = true;
+  matches: MatchWithFlags[] = [];
+  isLoading: boolean = true;
 
   constructor(private leagueService: LeagueService) {}
 
@@ -19,7 +20,10 @@ export class ScheduleComponent implements OnInit {
     } catch (error) {
       console.error('Error loading matches:', error);
     } finally {
-      this.loading = false;
+      this.isLoading = false;
     }
   }
 }
+
+
+

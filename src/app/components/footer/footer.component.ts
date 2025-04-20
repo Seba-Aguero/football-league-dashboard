@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { API_CONFIG } from '../../config/app.config';
 
 @Component({
   selector: 'app-footer',
@@ -16,7 +17,7 @@ export class FooterComponent implements OnInit {
   }
 
   private fetchApiVersion(): void {
-    this.http.get('http://localhost:3001/api/version')
+    this.http.get(`${API_CONFIG.BASE_URL}${API_CONFIG.VERSION_ENDPOINT}`)
       .subscribe({
         next: (response: any) => {
           this.apiVersion = response.version;
@@ -28,3 +29,4 @@ export class FooterComponent implements OnInit {
       });
   }
 }
+
