@@ -1,0 +1,67 @@
+// Colors
+$color-primary: #182C62;
+$color-secondary: #4B5C68;
+$color-background: #E4EDF2;
+$color-border: #E4EDF2;
+$color-row-alternate: #F6F7F7;
+$color-points: #025FEB;
+
+// Mixins
+@mixin page-title {
+  font-size: 24px;
+  color: $color-primary;
+  margin: 60px 0 20px;
+  text-align: center;
+}
+
+@mixin base-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+
+  th, td {
+    padding: 0;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: $color-background;
+    font-size: 12px;
+    color: $color-primary;
+    font-weight: bold;
+    height: 40px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  tr {
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  td {
+    font-size: 14px;
+    color: $color-secondary;
+    height: 70px;
+  }
+}
+
+@mixin team-flag {
+  width: 53px;
+  height: 37px;
+  vertical-align: middle;
+  object-fit: cover;
+
+  &[alt="Switzerland flag"] {
+    transform: scaleX(1.5);
+  }
+}
+
+@mixin page-container {
+  max-width: 90%;
+  margin: 0 auto;
+  overflow-x: auto;
+}

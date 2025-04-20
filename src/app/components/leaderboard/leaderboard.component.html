@@ -1,0 +1,28 @@
+<div class="leaderboard-container">
+  <h2>League Standings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="team-column">Team</th>
+        <th class="matches-played-column">MP</th>
+        <th class="goals-for-column">GF</th>
+        <th class="goals-against-column">GA</th>
+        <th class="goal-difference-column">GD</th>
+        <th class="points-column">Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of leaderboard">
+        <td class="team-column">
+          <img [src]="team.flag" [alt]="team.name + ' flag'" class="team-flag">
+          {{ team.name }}
+        </td>
+        <td class="matches-played-column">{{ team.mp }}</td>
+        <td class="goals-for-column">{{ team.gf }}</td>
+        <td class="goals-against-column">{{ team.ga }}</td>
+        <td class="goal-difference-column">{{ team.gd }}</td>
+        <td class="points-column">{{ team.points }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

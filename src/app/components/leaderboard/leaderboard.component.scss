@@ -1,0 +1,58 @@
+@import '../../styles/shared';
+
+.leaderboard-container {
+  @include page-container;
+
+  h2 {
+    @include page-title;
+  }
+
+  table {
+    @include base-table;
+
+    .team-column {
+      min-width: 200px;
+      padding-left: 10px;
+    }
+
+    td.team-column {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .team-flag {
+      @include team-flag;
+    }
+
+    .matches-played-column,
+    .goals-for-column,
+    .goals-against-column,
+    .goal-difference-column,
+    .points-column {
+      text-align: center;
+      min-width: 45px;
+    }
+
+    td.points-column {
+      font-weight: bold;
+      font-size: 16px;
+      color: $color-points;
+    }
+
+    .goal-difference-column {
+      display: none;
+    }
+
+    @media (max-width: 500px) {
+      .goals-for-column,
+      .goals-against-column {
+        display: none;
+      }
+
+      .goal-difference-column {
+        display: table-cell;
+        text-align: center;
+      }
+    }
+  }
+}

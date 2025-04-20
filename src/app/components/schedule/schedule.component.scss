@@ -1,0 +1,79 @@
+@import "../../styles/shared";
+
+.schedule-container {
+  @include page-container;
+
+  h2 {
+    @include page-title;
+  }
+
+  table {
+    @include base-table;
+
+    tr:nth-child(even) {
+      background-color: $color-row-alternate;
+    }
+
+    .datetime-column {
+      width: 78px;
+      min-width: 78px;
+      text-align: right;
+    }
+
+    .stadium-column {
+      min-width: 180px;
+      padding-left: 7%;
+    }
+
+    .home-team-column {
+      width: 250px;
+      text-align: right;
+    }
+
+    td.home-team-column,
+    td.away-team-column {
+      font-size: 16px;
+
+      .team-name {
+        font-weight: bold;
+      }
+    }
+
+    .home-team-column .team-name {
+      margin-right: 8px;
+    }
+
+    .away-team-column {
+      width: 250px;
+      text-align: left;
+
+      .team-name {
+        margin-left: 8px;
+      }
+    }
+
+    .score-column {
+      width: 100px;
+      text-align: center;
+      min-width: 35px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .team-flag {
+      @include team-flag;
+    }
+
+    @media (max-width: 750px) {
+      .stadium-column {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .datetime-column {
+        display: none;
+      }
+    }
+  }
+}

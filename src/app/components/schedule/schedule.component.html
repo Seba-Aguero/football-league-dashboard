@@ -1,0 +1,35 @@
+<div class="schedule-container">
+  <h2>League Schedule</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="datetime-column">Date/Time</th>
+        <th class="stadium-column">Stadium</th>
+        <th class="home-team-column">Home Team</th>
+        <th class="score-column"></th>
+        <th class="away-team-column">Away Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let match of matches">
+        <td class="datetime-column">
+          <div>{{ match.matchDate | customDate }}</div>
+          <div>{{ match.matchDate | date:'HH:mm' }}</div>
+        </td>
+        <td class="stadium-column">{{ match.stadium }}</td>
+        <td class="home-team-column">
+          <span class="team-name">{{ match.homeTeam }}</span>
+          <img [src]="match.homeTeamFlag" [alt]="match.homeTeam + ' flag'" class="team-flag">
+        </td>
+        <td class="score-column">
+          {{ match.matchPlayed ? match.homeTeamScore + ' : ' + match.awayTeamScore : '-' }}
+        </td>
+        <td class="away-team-column">
+          <img [src]="match.awayTeamFlag" [alt]="match.awayTeam + ' flag'" class="team-flag">
+          <span class="team-name">{{ match.awayTeam }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
